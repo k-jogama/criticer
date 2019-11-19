@@ -9,6 +9,21 @@
                 <div><input type="url" name="eatlogurl" class="eatlogurl" placeholder="食べログのURLを入力してください"></div>
                 <div><button type="submit" class="btn-send">送信</button></div>
             </form>
+
+            @if(isset($eatlogdata))
+            <div class="eatlogdata-display-area">
+                <table class="table table-striped table-bordered">
+                    <tbody>
+                        @foreach($eatlogdata as $item)
+                        <tr>
+                            <th>{{ $item['label'] }}</th>
+                            <td>{{ $item['info'] }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            @endif
         </div>
     </div>
 </div>
