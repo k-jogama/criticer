@@ -40,3 +40,16 @@ body {
     left: 0;
     background-size: cover;
 }
+
+table th {
+    width: 25%;
+}
+
+#app .container .eatlogdata-display-area {
+    text-align: left;
+    margin-top: 20px;
+    background: rgba(255,255,255,1);
+    overflow: auto;
+    white-space: nowrap;
+    clear: both;
+}

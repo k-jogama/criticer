@@ -45,18 +45,36 @@ class HomeController extends Controller
         $score = $goutte->filter('.rdheader-rating__score-val-dtl')->text();
         if ($score) {
             $shopinfos = array();
-//            foreach ($goutte->filter('.c-table tr') as $row) {
-//                $value = $goutte->filter($row)->find("td:eq(0)")->text();
-//                $shopinfos[] = trim($value);
-//            }
-//            $goutte->filter('.c-table tr')->each(function($node) use(&$shopinfos) {
-//                $value = $node->filter('td:eq(0)')->text();
-//                $shopinfos[] = trim($value);
-//            });
+            $goutte->filter('.c-table tr')->each(function($node) use(&$shopinfos) {
+                $value = $node->filter('td')->text();
+                $shopinfos[] = trim($value);
+            });
+
+
+            foreach (config('const.EATLOGS.INDEX_LIST') as $key => $value) {
+                if (isset($shopinfos[$value])) {
+                    $shopinfos[$key] = $shopinfos[$value];
+                } else {
+                    $shopinfos[$key] = '';
+                }
+            }
         }
 
         $eatlogdata = array(
-            'score' => array('info' => $score, 'label' => '評価')
+            'eatlogurl'        => array('info' => $request->input('eatlogurl'), 'label' => '食べログサイト'),
+            'score'            => array('info' => $score, 'label' => '評価'),
+            'shopname'         => array('info' => $shopinfos['Shopname'], 'label' => config('const.EATLOGS.NAME_LIST.Shopname')),
+            'reserve_tel'      => array('info' => $shopinfos['Reserve_tel'], 'label' => config('const.EATLOGS.NAME_LIST.Reserve_tel')),
+            'reserve_judgment' => array('info' => $shopinfos['Reserve_judgment'], 'label' => config('const.EATLOGS.NAME_LIST.Reserve_judgment')),
+            'address'          => array('info' => $shopinfos['Address'], 'label' => config('const.EATLOGS.NAME_LIST.Address')),
+            'business_hours'   => array('info' => $shopinfos['Business_hours'], 'label' => config('const.EATLOGS.NAME_LIST.Business_hours')),
+            'payment_method'   => array('info' => $shopinfos['Payment_method'], 'label' => config('const.EATLOGS.NAME_LIST.Payment_method')),
+            'service_charge'   => array('info' => $shopinfos['Service_charge'], 'label' => config('const.EATLOGS.NAME_LIST.Service_charge')),
+            'private_room'     => array('info' => $shopinfos['Private_room'], 'label' => config('const.EATLOGS.NAME_LIST.Private_room')),
+            'smoking_judgment' => array('info' => $shopinfos['Smoking_judgment'], 'label' => config('const.EATLOGS.NAME_LIST.Smoking_judgment')),
+            'parking'          => array('info' => $shopinfos['Parking'], 'label' => config('const.EATLOGS.NAME_LIST.Parking')),
+            'hp'               => array('info' => $shopinfos['Hp'], 'label' => config('const.EATLOGS.NAME_LIST.Hp')),
+            'shoptel'          => array('info' => $shopinfos['Shoptel'], 'label' => config('const.EATLOGS.NAME_LIST.Shoptel'))
         );
 
         return view('home',compact('eatlogdata'));
