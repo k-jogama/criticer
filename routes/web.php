@@ -18,5 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/list', 'ListController@index')->name('list');
 Route::post('/home', 'HomeController@scraping')->name('home');
 Route::post('/save', 'SaveController@index')->name('save');
