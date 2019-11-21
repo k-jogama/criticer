@@ -9,7 +9,7 @@
     text-align: center;
 }
 
-#app .container .btn-send {
+button {
     position: relative;
     display: inline-block;
     padding: 0.25em 0.5em;
@@ -24,9 +24,13 @@
     width: 15%;
 }
 
-#app .container .btn-send:active {
+button:active {
     border-bottom: solid 2px #fd9535;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+
+button.btn-save {
+    width: 30%;
 }
 
 body {
@@ -47,7 +51,7 @@ table th {
 
 #app .container .eatlogdata-display-area {
     text-align: left;
-    margin-top: 20px;
+    margin: 20px 0px;
     background: rgba(255,255,255,1);
     overflow: auto;
     white-space: nowrap;
