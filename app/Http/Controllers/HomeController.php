@@ -49,7 +49,11 @@ class HomeController extends Controller
                 $value = $node->filter('td')->text();
                 $shopinfos[] = trim($value);
             });
-
+            $goutte->filter('.homepage')->each(function($node) use(&$homepage) {
+                $homepage = $node->filter('.c-link-arrow')->text();
+                $homepage = trim($homepage);
+            });
+            $img = $goutte->filter('.rstdtl-top-postphoto__list')->first()->filter('img')->attr('src');
 
             foreach (config('const.EATLOGS.INDEX_LIST') as $key => $value) {
                 if (isset($shopinfos[$value])) {
@@ -73,8 +77,9 @@ class HomeController extends Controller
             'private_room'     => array('info' => $shopinfos['Private_room'], 'label' => config('const.EATLOGS.NAME_LIST.Private_room')),
             'smoking_judgment' => array('info' => $shopinfos['Smoking_judgment'], 'label' => config('const.EATLOGS.NAME_LIST.Smoking_judgment')),
             'parking'          => array('info' => $shopinfos['Parking'], 'label' => config('const.EATLOGS.NAME_LIST.Parking')),
-            'hp'               => array('info' => $shopinfos['Hp'], 'label' => config('const.EATLOGS.NAME_LIST.Hp')),
-            'shoptel'          => array('info' => $shopinfos['Shoptel'], 'label' => config('const.EATLOGS.NAME_LIST.Shoptel'))
+            'hp'               => array('info' => $homepage, 'label' => config('const.EATLOGS.NAME_LIST.Hp')),
+            'shoptel'          => array('info' => $shopinfos['Shoptel'], 'label' => config('const.EATLOGS.NAME_LIST.Shoptel')),
+            'img'              => array('info' => $img)
         );
 
         return view('home',compact('eatlogdata'));
