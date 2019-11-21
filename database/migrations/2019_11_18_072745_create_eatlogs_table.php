@@ -19,7 +19,7 @@ class CreateEatlogsTable extends Migration
             $table->float('score',8, 2);
             $table->string('reserve_tel');
             $table->string('reserve_judgment');
-            $table->string('address');
+            $table->text('address');
             $table->text('business_hours');
             $table->string('payment_method');
             $table->string('service_charge');
