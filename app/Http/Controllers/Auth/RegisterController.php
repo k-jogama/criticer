@@ -28,7 +28,11 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+//    protected $redirectTo = '/home';
+    protected function redirectTo() {
+        session()->flash('msg_success', '登録しました');
+        return '/home';
+    }
 
     /**
      * Create a new controller instance.

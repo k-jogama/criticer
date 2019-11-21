@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
     }
 
     /**
@@ -81,6 +81,8 @@ class HomeController extends Controller
             'shoptel'          => array('info' => $shopinfos['Shoptel'], 'label' => config('const.EATLOGS.NAME_LIST.Shoptel')),
             'img'              => array('info' => $img)
         );
+
+        session()->flash('flash_message', 'データの取得に成功しました');
 
         return view('home',compact('eatlogdata'));
     }
