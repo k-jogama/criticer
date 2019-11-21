@@ -11,22 +11,32 @@
             </form>
 
             @if(isset($eatlogdata))
-            <div class="eatlogdata-display-area">
-                <table class="table table-striped table-bordered">
-                    <tbody>
-                        @foreach($eatlogdata as $key => $item)
-                        <tr>
-                            <th>{{ $item['label'] }}</th>
-                            @if($key == 'eatlogurl')
-                                <td><a href="{{ $item['info'] }}" target="_blank">{{ $item['info'] }}</a></td>
-                            @else
-                                <td>{{ $item['info'] }}</td>
-                            @endif
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+                <form action="{{ route('save') }}" method="POST" class="form-save">
+                    {{ csrf_field() }}
+                    <div class="eatlogdata-display-area">
+                        <table class="table table-striped table-bordered">
+                            <tbody>
+                                @foreach($eatlogdata as $key => $item)
+                                    @if($key != 'img')
+                                    <tr>
+                                        <th>{{ $item['label'] }}</th>
+                                        @if($key == 'eatlogurl' || $key == 'hp')
+                                            <td><a href="{{ $item['info'] }}" target="_blank">{{ $item['info'] }}</a></td>
+                                        @else
+                                            <td>{{ $item['info'] }}</td>
+                                        @endif
+                                    </tr>
+                                    @endif
+                                    <input type="hidden" name="{{ $key }}" value="{{ $item['info'] }}">
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="eatlogdata-save-btn-area">
+                        <button type="submit" class="btn-save">★お気に入り登録</button>
+                    </div>
+                </form>
             @endif
         </div>
     </div>

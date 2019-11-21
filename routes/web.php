@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home', 'HomeController@scraping')->name('home');
+Route::post('/save', 'SaveController@index')->name('save');
