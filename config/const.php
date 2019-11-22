@@ -32,4 +32,19 @@ return [
             'Shoptel'          => '店舗電話番号'
         ],
     ],
+
+    'SCORE'            => '評価',
+    'ACCOUNT'          => 'アカウント',
+    'LOGIN'            => 'ログイン',
+    'LOGOUT'           => 'ログアウト',
+    'ENTRY'            => '登録',
+    'USERNAME'         => 'ユーザー名',
+    'FAVORITE'         => 'お気に入り',
+    'SEND'             => '送信',
+    'MAILADDRESS'      => 'メールアドレス',
+    'PASSWORD'         => 'パスワード',
+    'PASSWORD_CHECK'   => 'パスワード確認',
+    'PASSWORD_FORGET'  => 'パスワードを忘れた',
+    'PASSWORD_RESET'   => 'パスワードリセット',
+    'LOGIN_RETENTION'  => 'ログインを保持',
 ];
