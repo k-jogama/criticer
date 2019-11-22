@@ -1,0 +1,22 @@
+#eatlog-list .eatlogdata-list-area {
+    text-align: left;
+    margin: 20px 0px;
+    background: rgba(255,255,255,1);
+}
+
+#eatlog-list .item-l {
+    width: 25%;
+}
+
+#eatlog-list .item-m {
+    width: 15%;
+}
+
+#eatlog-list .item-s {
+    width: 10%;
+}
+
+#eatlog-list thead {
+    background: #b4d9e0;
+    text-align: center;
+}
