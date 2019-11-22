@@ -25,7 +25,7 @@ class SaveController extends Controller
         }
         $eatlog->save();
 
-        session()->flash('flash_message', 'お気に入りに登録しました');
+        session()->flash('flash_message', config('const.MESSAGE_FAVORITE_ENTRY'));
 //        $result = Eatlog::store($request);
         return redirect('/');
     }

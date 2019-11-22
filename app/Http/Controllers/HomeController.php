@@ -66,7 +66,7 @@ class HomeController extends Controller
 
         $eatlogdata = array(
             'eatlogurl'        => array('info' => $request->input('eatlogurl'), 'label' => '食べログサイト'),
-            'score'            => array('info' => $score, 'label' => '評価'),
+            'score'            => array('info' => $score, 'label' => config('const.SCORE')),
             'shopname'         => array('info' => $shopinfos['Shopname'], 'label' => config('const.EATLOGS.NAME_LIST.Shopname')),
             'reserve_tel'      => array('info' => $shopinfos['Reserve_tel'], 'label' => config('const.EATLOGS.NAME_LIST.Reserve_tel')),
             'reserve_judgment' => array('info' => $shopinfos['Reserve_judgment'], 'label' => config('const.EATLOGS.NAME_LIST.Reserve_judgment')),
@@ -82,7 +82,7 @@ class HomeController extends Controller
             'img'              => array('info' => $img)
         );
 
-        session()->flash('flash_message', 'データの取得に成功しました');
+        session()->flash('flash_message', config('const.MESSAGE_DATA_GET_SUCCESS'));
 
         return view('home',compact('eatlogdata'));
     }
