@@ -82,7 +82,7 @@ class HomeController extends Controller
             'img'              => array('info' => $img)
         );
 
-        session()->flash('flash_message', config('const.MESSAGE_DATA_GET_SUCCESS'));
+        session()->flash('msg_success', config('const.MESSAGE_DATA_GET_SUCCESS'));
 
         return view('home',compact('eatlogdata'));
     }

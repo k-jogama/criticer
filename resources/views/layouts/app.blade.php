@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
@@ -81,9 +82,9 @@
 
         <!-- フラッシュメッセージ -->
         <script>
-            @if (session('flash_message'))
+            @if (session('msg_success'))
             $(function () {
-                toastr.success('{{ session('flash_message') }}');
+                toastr.success('{{ session('msg_success') }}');
             });
             @endif
 
