@@ -15,6 +15,7 @@ class CreateEatlogsTable extends Migration
     {
         Schema::create('eatlogs', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('userid');
             $table->string('shopname');
             $table->float('score',8, 2);
             $table->string('reserve_tel');
