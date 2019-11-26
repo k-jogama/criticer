@@ -19,17 +19,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($eatlogs as $item)
-                        <tr>
-                            <td>{{ $item->shopname }}</td>
-                            <td>{{ $item->score }}</td>
-                            <td>{{ $item->reserve_tel }}</td>
-                            <td>{{ $item->reserve_judgment }}</td>
-                            <td>{{ $item->address }}</td>
-                            <td>{{ $item->business_hours }}</td>
-                            <td>{{ $item->shoptel }}</td>
-                        </tr>
-                        @endforeach
+                            @foreach($eatlogs as $item)
+                            <tr>
+                                <td><a href="{{ action('EditController@edit', $item->id) }}">{{ $item->shopname }}</a></td>
+                                <td>{{ $item->score }}</td>
+                                <td><a href="tel:{{ $item->reserve_tel }}">{{ $item->reserve_tel }}</a></td>
+                                <td>{{ $item->reserve_judgment }}</td>
+                                <td><a href="https://maps.google.co.jp/maps/search/{{ $item->address }}" target="_blank">{{ $item->address }}</a></td>
+                                <td>{{ $item->business_hours }}</td>
+                                <td><a href="tel:{{ $item->shoptel }}">{{ $item->shoptel }}</a></td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
