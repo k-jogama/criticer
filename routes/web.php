@@ -21,3 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/list', 'ListController@index')->name('list');
 Route::post('/home', 'HomeController@scraping')->name('home');
 Route::post('/save', 'SaveController@index')->name('save');
+Route::post('/edit', 'EditController@update')->name('edit');
+Route::get('/edit/{id}', 'EditController@edit');
+Route::get('/delete/{id}', 'EditController@delete');
