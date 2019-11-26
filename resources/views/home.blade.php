@@ -13,7 +13,7 @@
                 <form action="{{ route('home') }}" method="POST" class="form-url">
                     {{ csrf_field() }}
                     <div><input type="url" name="eatlogurl" class="eatlogurl" placeholder="食べログのURLを入力してください"></div>
-                    <div><button type="submit" class="btn-send">{{ config('const.SEND') }}</button></div>
+                    <div><button type="button" class="btn-send">{{ config('const.SEND') }}</button></div>
                 </form>
 
                 @if(isset($eatlogdata))
