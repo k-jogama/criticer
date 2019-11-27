@@ -12,7 +12,10 @@
                 </div>
                 <form action="{{ route('home') }}" method="POST" class="form-url">
                     {{ csrf_field() }}
-                    <div><input type="url" name="eatlogurl" class="eatlogurl" placeholder="食べログのURLを入力してください"></div>
+                    <div class="eatlogurl-form">
+                        <input type="url" name="eatlogurl" class="eatlogurl" placeholder="食べログのURLを入力してください">
+                        <span class="eatlog-desc">※ https://tabelog.com/tokyo/A1329/A132901/13158119/</span>
+                    </div>
                     <div><button type="button" class="btn-send">{{ config('const.SEND') }}</button></div>
                 </form>
 
