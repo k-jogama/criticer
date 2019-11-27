@@ -4,6 +4,10 @@
     background: rgba(255,255,255,1);
 }
 
+#eatlog-list table td {
+    vertical-align: middle;
+}
+
 #eatlog-list .item-l {
     width: 25%;
 }
@@ -19,4 +23,29 @@
 #eatlog-list thead {
     background: #b4d9e0;
     text-align: center;
+}
+
+#eatlog-list .eatlog-btn {
+    width: 100%;
+    margin-top: 20px;
+}
+
+#eatlog-list .edit-btn {
+    width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+    #eatlog-list .eatlogdata-list-area {
+        overflow: auto;
+        white-space: nowrap;
+        clear: both;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #eatlog-list .eatlogdata-list-area {
+        overflow: auto;
+        white-space: nowrap;
+        clear: both;
+    }
 }

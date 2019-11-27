@@ -9,7 +9,8 @@ button {
     box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
     font-weight: bold;
     font-size: 15px;
-    width: 22%;
+    width: 20%;
+    cursor:pointer
 }
 
 button:active {
@@ -17,6 +18,11 @@ button:active {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 }
 
-button.btn-save {
-    width: 30%;
+@media screen and (max-width: 480px) {
+    button {
+        width: 45%;
+    }
+    .navbar-light .navbar-toggler {
+        width: auto;
+    }
 }
