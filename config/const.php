@@ -33,6 +33,7 @@ return [
         ],
     ],
 
+    'EATLOG'                   => '食べログ',
     'SCORE'                    => '評価',
     'ACCOUNT'                  => 'アカウント',
     'LOGIN'                    => 'ログイン',
@@ -41,6 +42,7 @@ return [
     'SAVE'                     => '保存',
     'DELETE'                   => '削除',
     'BACK'                     => '戻る',
+    'EDIT'                     => '編集',
     'USERNAME'                 => 'ユーザー名',
     'FAVORITE'                 => 'お気に入り',
     'SEND'                     => '送信',
@@ -51,8 +53,9 @@ return [
     'PASSWORD_RESET'           => 'パスワードリセット',
     'LOGIN_RETENTION'          => 'ログインを保持',
     'MESSAGE_DATA_GET_SUCCESS' => 'データの取得に成功しました',
+    'MESSAGE_DATA_GET_ERROR'   => 'データの取得に失敗しました',
     'MESSAGE_FAVORITE_ENTRY'   => 'お気に入りに登録しました',
     'MESSAGE_SAVE_SUCCESS'     => '保存しました',
-    'MESSAGE_DELETE_SUCCESS'     => '削除しました',
+    'MESSAGE_DELETE_SUCCESS'   => '削除しました',
     'MESSAGE_NOT_URL_ERROR'    => 'URLを入力してください',
 ];
