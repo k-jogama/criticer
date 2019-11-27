@@ -29,6 +29,6 @@ class SaveController extends Controller
         $eatlog->save();
 
         session()->flash('msg_success', config('const.MESSAGE_FAVORITE_ENTRY'));
-        return redirect('/');
+        return redirect('/home');
     }
 }
