@@ -1,0 +1,11 @@
+#eatlog-detail table th {
+    width: 22%;
+}
+
+@media screen and (max-width: 480px) {
+    #eatlog-detail .eatlogdata-detail-area {
+        overflow: auto;
+        white-space: nowrap;
+        clear: both;
+    }
+}

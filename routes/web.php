@@ -24,3 +24,4 @@ Route::post('/save', 'SaveController@index')->name('save');
 Route::post('/edit', 'EditController@update')->name('edit');
 Route::get('/edit/{id}', 'EditController@edit');
 Route::get('/delete/{id}', 'EditController@delete');
+Route::get('/detail/{id}', 'DetailController@show');
