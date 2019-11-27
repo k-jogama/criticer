@@ -10,8 +10,13 @@
     });
 
     $('.btn-send').on('click', function() {
-        if (!$('.eatlogurl').val()) {
-            alert('URLを入力してください');
+        var eatlogurl = $('.eatlogurl').val();
+        if (!eatlogurl) {
+            alert('URLが入力されていません');
+            return false;
+        }
+        if ( !eatlogurl.match(/tabelog.com/)) {
+            alert('食べログのURLを入力してください');
             return false;
         }
         $('.form-url').submit();
