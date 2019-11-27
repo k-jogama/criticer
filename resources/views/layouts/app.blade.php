@@ -24,6 +24,7 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
     <link href="{{ asset('css/list.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/detail.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet" >
 
 </head>
@@ -90,7 +91,7 @@
 
             @if (session('msg_danger'))
             $(function () {
-                toastr.danger('{{ session('msg_danger') }}');
+                toastr.error('{{ session('msg_danger') }}');
             });
             @endif
         </script>
