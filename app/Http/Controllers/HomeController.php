@@ -40,28 +40,34 @@ class HomeController extends Controller
 
     public function scraping(Request $request)
     {
-        $goutte = GoutteFacade::request('GET', $request->input('eatlogurl'));
+        try {
+            $goutte = GoutteFacade::request('GET', $request->input('eatlogurl'));
 
-        $score = $goutte->filter('.rdheader-rating__score-val-dtl')->text();
-        if ($score) {
-            $shopinfos = array();
-            $goutte->filter('.c-table tr')->each(function($node) use(&$shopinfos) {
-                $value = $node->filter('td')->text();
-                $shopinfos[] = trim($value);
-            });
-            $goutte->filter('.homepage')->each(function($node) use(&$homepage) {
-                $homepage = $node->filter('.c-link-arrow')->text();
-                $homepage = trim($homepage);
-            });
-            $img = $goutte->filter('.rstdtl-top-postphoto__list')->first()->filter('img')->attr('src');
+            $score = $goutte->filter('.rdheader-rating__score-val-dtl')->text();
+            if ($score) {
+                $shopinfos = array();
+                $goutte->filter('.c-table tr')->each(function($node) use(&$shopinfos) {
+                    $value = $node->filter('td')->text();
+                    $value = str_replace(array(" ", "　"), "", $value);
+                    $shopinfos[] = $value;
+                });
+                $goutte->filter('.homepage')->each(function($node) use(&$homepage) {
+                    $homepage = $node->filter('.c-link-arrow')->text();
+                    $homepage = trim($homepage);
+                });
+                $img = $goutte->filter('.rstdtl-top-postphoto__list')->first()->filter('img')->attr('src');
 
-            foreach (config('const.EATLOGS.INDEX_LIST') as $key => $value) {
-                if (isset($shopinfos[$value])) {
-                    $shopinfos[$key] = $shopinfos[$value];
-                } else {
-                    $shopinfos[$key] = '';
+                foreach (config('const.EATLOGS.INDEX_LIST') as $key => $value) {
+                    if (isset($shopinfos[$value])) {
+                        $shopinfos[$key] = $shopinfos[$value];
+                    } else {
+                        $shopinfos[$key] = '';
+                    }
                 }
             }
+        } catch (\Exception $e) {
+            session()->flash('msg_danger', config('const.MESSAGE_DATA_GET_ERROR'));
+            return view('home');
         }
 
         $eatlogdata = array(
