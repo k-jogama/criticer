@@ -81,7 +81,6 @@
             </div>
         </nav>
 
-        <!-- フラッシュメッセージ -->
         <script>
             @if (session('msg_success'))
             $(function () {

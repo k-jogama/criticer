@@ -24,17 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        $name = "山田太郎";
-//        return view('home')->with('name',$name);
-//        $eatlogdata = array('test1'=>'aaa', 'test2'=>'bbbs');
-//        return view('home',$eatlogdata);
-
-
-//        $test_array = ["テスト1","テスト2", "テスト3"];
-//
-//        return view('home',compact('test_array'));
-
-
         return view('home');
     }
 
