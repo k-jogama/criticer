@@ -1,4 +1,4 @@
-## MyShop
+## Criticer
 
 https://criticer.com
 
@@ -6,7 +6,7 @@ https://criticer.com
 
 食べログのURLは店舗のTOP画面のURLを入力します。
 
-![readme](https://user-images.githubusercontent.com/56727872/75872657-ea085d00-5e51-11ea-9b78-70f5766480ab.png)
+![criticer_topimg](https://user-images.githubusercontent.com/56727872/79627552-51653c80-8174-11ea-9781-beb123333bb1.png)
 
 赤枠の例のURLをコピペして「送信」をクリックすると、データの取得が確認できます。
 
