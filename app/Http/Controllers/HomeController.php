@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-//        $this->middleware('auth');
+        //        $this->middleware('auth');
     }
 
     /**
@@ -35,12 +35,16 @@ class HomeController extends Controller
             $score = $goutte->filter('.rdheader-rating__score-val-dtl')->text();
             if ($score) {
                 $shopinfos = array();
-                $goutte->filter('.c-table tr')->each(function($node) use(&$shopinfos) {
+                $goutte->filter('.c-table tr')->each(function ($node) use (&$shopinfos) {
                     $value = $node->filter('td')->text();
                     $value = str_replace(array(" ", "　"), "", $value);
+                    if (strpos($value, '地図') !== false) {
+                        $value = str_replace("大きな地図を見る", "", $value);
+                        $value = str_replace("周辺のお店を探す", "", $value);
+                    }
                     $shopinfos[] = $value;
                 });
-                $goutte->filter('.homepage')->each(function($node) use(&$homepage) {
+                $goutte->filter('.homepage')->each(function ($node) use (&$homepage) {
                     $homepage = $node->filter('.c-link-arrow')->text();
                     $homepage = trim($homepage);
                 });
@@ -79,6 +83,6 @@ class HomeController extends Controller
 
         session()->flash('msg_success', config('const.MESSAGE_DATA_GET_SUCCESS'));
 
-        return view('home',compact('eatlogdata'));
+        return view('home', compact('eatlogdata'));
     }
 }
