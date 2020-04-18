@@ -37,6 +37,7 @@ return [
     'SCORE'                    => '評価',
     'ACCOUNT'                  => 'アカウント',
     'LOGIN'                    => 'ログイン',
+    'EASY_LOGIN'               => '簡単ログイン',
     'LOGOUT'                   => 'ログアウト',
     'ENTRY'                    => '登録',
     'SAVE'                     => '保存',
